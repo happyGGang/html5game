@@ -58,6 +58,8 @@
         }
         $score.innerHTML = `점수 : 0점`
         $hightscroe.innerHTML = `최고점수 : ${option.hightscroe}점`
+        // randomFood()
+        window.requestAnimationFrame(play)
       }
     }
   }
@@ -82,6 +84,26 @@
     for(let i = option.snake.length -1; i >= 0; i++) {
       buildSnake(context, option.snake[i].x, option.snake[i].y, i === 0)
     }
+  }
+
+  const play = (timestamp) => {
+    start++
+    if(option.gameEnd) {
+      return
+    }
+    if(timestamp - start > 1000 / 10) {
+      buildBoard()
+      buildFood(context, option.food.x, option.food.y)
+      setSnake()
+      start = timestamp;
+    }
+    window.requestAnimationFrame(play)
+    // if(gameOver()) {
+    //   option.gameEnd = true
+    //   setHighscore();
+    //   alert('게임오버')
+    //   return
+    // }
   }
 
   init()
