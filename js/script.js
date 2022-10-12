@@ -19,7 +19,7 @@
 
   let start = 0
   let option = {
-    $hightscroe: localStorage.getItem('score') || 0,
+    hightscroe: localStorage.getItem('score') || 0,
     gameEnd: true,
     direction: 2,
     snake: [
