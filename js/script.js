@@ -85,6 +85,41 @@
       buildSnake(context, option.snake[i].x, option.snake[i].y, i === 0)
     }
   }
+
+  const setBody = () => {
+    const tail = option.snake[option.snake.length - 1]
+    const direction = tail.direction
+    let x = tail.x
+    let y = tail.y
+    switch(direction) {
+      case 1:
+        y = setDirection(300, y -10)
+        break
+      case -1:
+        y = setDirection(300, y + 10)
+        break 
+      case -2:
+        x = setDirection(300, x -10)
+        break
+      case 2:
+        x = setDirection(300, x + 10)
+        break
+    }
+    option.snake.push(x, y, direction)
+  }
+
+  const getFood = () => {
+    const snakeX = option.snake[0].x
+    const snakeY = option.snake[0].y
+    const foodX = option.food[0].x
+    const foodY = option.food[0].y
+    if(snakeX == foodX && snakeY == foodY ) {
+      option.score++
+      $score.innerHTML = `점수 : ${option.score}점`
+      setBody()
+      randomFood()
+    }
+  }
   const randomFood = () => {
     let x = Math.floor(Math.random() * 25) * 10
     let y = Math.floor(Math.random() * 25) * 10
@@ -104,6 +139,7 @@
       buildBoard()
       buildFood(context, option.food.x, option.food.y)
       setSnake()
+      getFood()
       start = timestamp;
     }
     window.requestAnimationFrame(play)
