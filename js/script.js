@@ -184,9 +184,13 @@
 
   const isDirectionCorrect = (direction) => {
     return {
-      option.direction === option.snake[0].direction && 
-      option.direction !== -direction
+      option.direction === option.snake[0].direction && option.direction !== -direction
     }
+  }
+
+  const gameOver = () => {
+    const head = option.snake[0]
+    return option.snake.some((body, index) => index !== 0 && head.x === body.x && head.y === body.y)
   }
 
   const play = (timestamp) => {
@@ -195,12 +199,12 @@
       return
     }
     if(timestamp - start > 1000 / 10) {
-      // if(gameOver()) {
-      //   option.gameEnd = true
-      //   setHighscore();
-      //   alert('게임오버')
-      //   return
-      // }
+      if(gameOver()) {
+        option.gameEnd = true
+        setHighscore();
+        alert('게임오버')
+        return
+      }
       playSnake()
       buildBoard()
       buildFood(context, option.food.x, option.food.y)
