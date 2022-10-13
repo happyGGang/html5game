@@ -32,7 +32,7 @@
   }
 
   const init = () => {
-    /* document.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', (e) => {
       if(!/Arrow/gi.test(e.key)) {
         return
       }
@@ -41,7 +41,7 @@
       if(!isDirectionCorrect(direction)) {
         return
       }
-    }) */
+    })
     $play.onClick = () => {
       if(option.gameEnd) {
         option = {
@@ -58,7 +58,7 @@
         }
         $score.innerHTML = `점수 : 0점`
         $hightscroe.innerHTML = `최고점수 : ${option.hightscroe}점`
-        // randomFood()
+        randomFood()
         window.requestAnimationFrame(play)
       }
     }
@@ -84,6 +84,15 @@
     for(let i = option.snake.length -1; i >= 0; --i) {
       buildSnake(context, option.snake[i].x, option.snake[i].y, i === 0)
     }
+  }
+  const randomFood = () => {
+    let x = Math.floor(Math.random() * 25) * 10
+    let y = Math.floor(Math.random() * 25) * 10
+    while(option.snake.some((part) => part.x === x && part.y === y)) {
+      x = Math.floor(Math.random() * 25) * 10
+      y = Math.floor(Math.random() * 25) * 10
+    }
+    option.food = {x, y}
   }
 
   const play = (timestamp) => {
