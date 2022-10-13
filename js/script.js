@@ -85,6 +85,12 @@
       buildSnake(context, option.snake[i].x, option.snake[i].y, i === 0)
     }
   }
+  const setDirection = (number, value) => {
+    while(value < 0) {
+      value += number
+    }
+    return value % number
+  }
 
   const setBody = () => {
     const tail = option.snake[option.snake.length - 1]
