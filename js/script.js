@@ -81,6 +81,15 @@
     context.fill()
   }
 
+  const hightscroe = () => {
+    const localScore = option.hightscroe * 1 || 0
+    const finalScore = $score.textContent.match(/(\d+)/)[0] * 1
+    if(localScore < finalScore) {
+      alert(`최고기록 : ${finalScore}점`)
+      localStorage.setItem('score', finalScore)
+    }
+  }
+
   const setSnake = () => {
     for(let i = option.snake.length -1; i >= 0; --i) {
       buildSnake(context, option.snake[i].x, option.snake[i].y, i === 0)
