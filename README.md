@@ -2,15 +2,14 @@
 
 - http://slither.io/
 - html5로 지렁이 게임 만들기
-- canvas 이해
+- canvas 써보기가 목표
 
 ### canvas
 1. https://developer.mozilla.org/ko/docs/Web/API/Canvas_API
 1. https://developer.mozilla.org/ko/docs/Web/API/Canvas_API/Tutorial/Basic_usage
 
-- 캔버스의 기본 작성법 이해
 
-### user-select
+### user-select 
 https://caniuse.com/?search=user-select
 
 - 텍스트 드래그 방지와 같은 요소에 사용
@@ -21,8 +20,7 @@ https://caniuse.com/?search=user-select
 1. https://developer.mozilla.org/ko/docs/Web/API/window/requestAnimationFrame
 1. https://codepen.io/oinochoe/pen/jOGMoKJ
 
-- 화면에 새로운 애니메이션을 업데이트할 준비가 될때마다 이 메소드를 호출하는것이 좋습니다.
-- 콜백의 수는 보통 1초에 60회지만, 일반적으로 대부분의 브라우저에서는 W3C 권장사항에 따라 그 수가 디스플레이 주사율과 일치하게됩니다.
+- 화면에 새로운 애니메이션을 업데이트할 준비가 될때마다 이 메소드를 호출
 
 ```js
 var start = null;
@@ -44,5 +42,5 @@ window.requestAnimationFrame(step);
 ### localStorage
 https://developer.mozilla.org/ko/docs/Web/API/Window/localStorage
 
-- Document출처의 Storage에 저장 및 접근이 가능합니다.
-- 저장한 데이터는 브라우저 세션 간에 공유됩니다.
+- Document출처의 Storage에 저장 및 접근이 가능
+- 저장한 데이터는 브라우저 세션 간에 공유
